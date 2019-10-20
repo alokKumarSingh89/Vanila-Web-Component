@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Web Component</title>
     <meta charset="UTF-8" />
-  </head>
+</head>
 
-  <body>
-    <div id="app"></div>
+<body>
     <wc-modal></wc-modal>
+    <button>Show Modal</button>
     <script src="src/index.js"></script>
     <script src="src/modal.js"></script>
-  </body>
+    <script>
+        const confirmButton = document.querySelector("button");
+        confirmButton.addEventListener('click', () => {
+            console.log("ff")
+            const wcModal = document.querySelector("wc-modal");
+            wcModal.open();
+            wcModal.addEventListener('cancel', () => {
+                console.log("Closing the model......")
+            })
+        })
+    </script>
+</body>
+
 </html>
