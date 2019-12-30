@@ -12,17 +12,20 @@ class Modal extends HTMLElement {
           height:100vh;
           background-color: rgba(0,0,0,.75);
           z-index:10;
+          opacity:0;
+          pointer-events:none;
         }
         #modal{
           position:fixed;
           top:25vh;
           left:25%;
           width:50%;
-          height:30rem;
           background:white;
           border-radius:3px;
           box-shadow:0 2px 8px rgba(0,0,0,.25);
           z-index:100;
+          opacity:0;
+          pointer-events:none;
         }
       </style>
       <div id="backdroup"></div>
@@ -39,6 +42,10 @@ class Modal extends HTMLElement {
         </section>
       </div>
     `;
+  }
+  attributeChangedCallback(name, oldValue, newValue) {}
+  static get observedAttributes() {
+    return ["opened"];
   }
 }
 customElements.define("wc-modal", Modal);
