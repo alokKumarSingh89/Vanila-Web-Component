@@ -32,6 +32,7 @@ class TodoApp extends HTMLElement{
     this.$submit = this._shadowRoot.querySelector("button");
     this._todos = [];
     this.$submit.addEventListener('click',this._addTodo.bind(this));
+    
 
   }
   _addTodo(){
@@ -48,6 +49,9 @@ class TodoApp extends HTMLElement{
     this._todos.forEach((todo,index)=>{
       let $todoItem = document.createElement('todo-item');
       $todoItem.setAttribute("text",todo.text);
+      $todoItem.addEventListener('onToggle',(data)=>{
+        console.log(data)
+      })
       this.$todoList.appendChild($todoItem)
     })
   }
